@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./login.css">
+
+    <title>Banking App</title>
+</head>
+
+<body>
+    <div class="content">
+        <nav>
+            <h1 class="logo">BDU</h1>
+        </nav>
+        <div class="btn-grp">
+            <div class="bank-btn" id="deposit-btn" onclick="openModal()">
+                <p class="bank-text">Deposit</p>
+            </div>
+            <div class="bank-btn" id="withdraw-btn">
+                <p class="bank-text">Withdraw</p>
+            </div>
+            <div class="bank-btn" id="transfer-btn">
+                <p class="bank-text">Transfer</p>
+            </div>
+            <div class="bank-btn" id="add-btn">
+                <p class="bank-text">Add account</p>
+            </div>
+
+
+
+        </div>
+        <div class="acc-disp">
+            <table id="account-table">
+                <h4 style="margin: 10px 0;">BDU ACCOUNTS</h1>
+                <tbody >
+                    <tr>
+                        <th>Name</th>
+                        <th>Account Number</th>
+                        <th>Balance</th>
+                    </tr>
+                    <tr id="account-start">
+                        <td>Logic</td>
+                        <td>496721523489</td>
+                        <td>1292300</td>
+                    </tr>
+                </tbody>
+                
+                    
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <div id="deposit-Modal" class="modal">
+
+        <!-- Deposit Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>DEPOSIT</p>
+            <form>
+                <div class="modal-align-left">
+                    <label>Account Number</label><br>
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
+                        id="deposit-accnum-input">
+                </div>
+                <div class="modal-align-left">
+                    <label>Amount</label><br>
+                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input"
+                        id="deposit-amount-input">
+                </div>
+                <button type="button" class="modal-action-button" id="deposit-account-btn" onclick="depositMoney()">Deposit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="withdraw-Modal" class="modal">
+
+        <!-- Withdraw Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>WITHDRAW</p>
+            <form>
+                <div class="modal-align-left">
+                    <label>Account Number</label><br>
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
+                        id="withdraw-accnum-input" autocomplete="off">
+                </div>
+                <div class="modal-align-left">
+                    <label>Amount</label><br>
+                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input"
+                        id="withdraw-amount-input">
+                </div>
+                <button type="button" class="modal-action-button">Withdraw</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="transfer-Modal" class="modal">
+
+        <!-- Transfer Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Transfer</p>
+            <form>
+                <div class="modal-align-left">
+                    <label>Sender's Account Number</label><br>
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
+                        id="add-sender-accnum-input">
+                </div>
+                <div class="modal-align-left"><label>Receiver's Account Number</label><br>
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
+                        id="add-receiver-accnum-input">
+                </div>
+                <div class="modal-align-left">
+                    <label>Amount</label><br>
+                    <input type="number" placeholder="Enter amount to transfer " name="password" class="modal-input"
+                        id="transfer-amount-input">
+                </div>
+                <button type="button" class="modal-action-button">Transfer</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div id="add-Modal" class="modal">
+
+        <!-- Add Account Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Add Account</p>
+            <form role="form">
+                <div class="modal-align-left">
+                    <label>Name</label><br>
+                    <input type="text" placeholder="Enter name" name="name" class="modal-input"
+                        id="add-account-name-input" autocomplete="off">
+                </div>
+                <div class="modal-align-left">
+                    <label>Email</label><br>
+                    <input type="email" placeholder="Enter email" name="email" class="modal-input"
+                        id="add-account-email-input" autocomplete="off">
+                </div>
+                <div class="modal-align-left">
+                    <label>Password</label><br>
+                    <input type="password" placeholder="Enter password" name="email" class="modal-input"
+                        id="add-account-pass-input">
+                </div>
+                <div class="modal-align-left">
+                    <label>Amount</label><br>
+                    <input type="number" placeholder="Enter initial balance" name="password" class="modal-input"
+                        id="add-account-initial-input">
+                </div>
+                <button type="button" class="modal-action-button" id="add-account-btn" onclick="addAccount()">Add account</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="./dashboard.js"></script>
+
+</body>
+
+</html>
