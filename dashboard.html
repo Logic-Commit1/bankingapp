@@ -36,20 +36,20 @@
         <div class="acc-disp">
             <table id="account-table">
                 <h4 style="margin: 10px 0;">BDU ACCOUNTS</h1>
-                <tbody >
-                    <tr>
-                        <th>Name</th>
-                        <th>Account Number</th>
-                        <th>Balance</th>
-                    </tr>
-                    <tr id="account-start">
-                        <td>Logic</td>
-                        <td>496721523489</td>
-                        <td>1292300</td>
-                    </tr>
-                </tbody>
-                
-                    
+                    <tbody id="account-table-body">
+                        <tr>
+                            <th>Name</th>
+                            <th>Account Number</th>
+                            <th>Balance</th>
+                        </tr>
+                        <tr id="account-start">
+                            <td>Logic</td>
+                            <td>496721523489</td>
+                            <td>1292300</td>
+                        </tr>
+                    </tbody>
+
+
 
             </table>
         </div>
@@ -66,13 +66,11 @@
             <form>
                 <div class="modal-align-left">
                     <label>Account Number</label><br>
-                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
-                        id="deposit-accnum-input">
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input" id="deposit-accnum-input">
                 </div>
                 <div class="modal-align-left">
                     <label>Amount</label><br>
-                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input"
-                        id="deposit-amount-input">
+                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input" id="deposit-amount-input">
                 </div>
                 <button type="button" class="modal-action-button" id="deposit-account-btn" onclick="depositMoney()">Deposit</button>
             </form>
@@ -89,13 +87,11 @@
             <form>
                 <div class="modal-align-left">
                     <label>Account Number</label><br>
-                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
-                        id="withdraw-accnum-input" autocomplete="off">
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input" id="withdraw-accnum-input" autocomplete="off">
                 </div>
                 <div class="modal-align-left">
                     <label>Amount</label><br>
-                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input"
-                        id="withdraw-amount-input">
+                    <input type="number" placeholder="Enter amount to deposit " name="password" class="modal-input" id="withdraw-amount-input">
                 </div>
                 <button type="button" class="modal-action-button">Withdraw</button>
             </form>
@@ -112,17 +108,14 @@
             <form>
                 <div class="modal-align-left">
                     <label>Sender's Account Number</label><br>
-                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
-                        id="add-sender-accnum-input">
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input" id="add-sender-accnum-input">
                 </div>
                 <div class="modal-align-left"><label>Receiver's Account Number</label><br>
-                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input"
-                        id="add-receiver-accnum-input">
+                    <input type="number" placeholder="Enter account number" name="account-number" class="modal-input" id="add-receiver-accnum-input">
                 </div>
                 <div class="modal-align-left">
                     <label>Amount</label><br>
-                    <input type="number" placeholder="Enter amount to transfer " name="password" class="modal-input"
-                        id="transfer-amount-input">
+                    <input type="number" placeholder="Enter amount to transfer " name="password" class="modal-input" id="transfer-amount-input">
                 </div>
                 <button type="button" class="modal-action-button">Transfer</button>
             </form>
@@ -139,23 +132,19 @@
             <form role="form">
                 <div class="modal-align-left">
                     <label>Name</label><br>
-                    <input type="text" placeholder="Enter name" name="name" class="modal-input"
-                        id="add-account-name-input" autocomplete="off">
+                    <input type="text" placeholder="Enter name" name="name" class="modal-input" id="add-account-name-input" autocomplete="off">
                 </div>
                 <div class="modal-align-left">
                     <label>Email</label><br>
-                    <input type="email" placeholder="Enter email" name="email" class="modal-input"
-                        id="add-account-email-input" autocomplete="off">
+                    <input type="email" placeholder="Enter email" name="email" class="modal-input" id="add-account-email-input" autocomplete="off">
                 </div>
                 <div class="modal-align-left">
                     <label>Password</label><br>
-                    <input type="password" placeholder="Enter password" name="email" class="modal-input"
-                        id="add-account-pass-input">
+                    <input type="password" placeholder="Enter password" name="email" class="modal-input" id="add-account-pass-input">
                 </div>
                 <div class="modal-align-left">
                     <label>Amount</label><br>
-                    <input type="number" placeholder="Enter initial balance" name="password" class="modal-input"
-                        id="add-account-initial-input">
+                    <input type="number" placeholder="Enter initial balance" name="password" class="modal-input" id="add-account-initial-input">
                 </div>
                 <button type="button" class="modal-action-button" id="add-account-btn" onclick="addAccount()">Add account</button>
             </form>

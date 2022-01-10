@@ -17,16 +17,16 @@ function openModal() {}
 
 // When the user clicks the button, open the modal 
 
-deposit_btn.onclick = function () {
+deposit_btn.onclick = function() {
     deposit_modal.style.display = "block";
 }
-withdraw_btn.onclick = function () {
+withdraw_btn.onclick = function() {
     withdraw_modal.style.display = "block";
 }
-transfer_btn.onclick = function () {
+transfer_btn.onclick = function() {
     transfer_modal.style.display = "block";
 }
-add_btn.onclick = function () {
+add_btn.onclick = function() {
     add_modal.style.display = "block";
 }
 
@@ -34,13 +34,13 @@ add_btn.onclick = function () {
 var x;
 x = document.querySelectorAll(".modal");
 for (let i = 0; i < span.length; i++) {
-    span[i].addEventListener("click", function () {
+    span[i].addEventListener("click", function() {
         x[i].style.display = "none";
     })
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.addEventListener("click", function (event) {
+window.addEventListener("click", function(event) {
     if ((event.target == deposit_modal) || (event.target == withdraw_modal) || (event.target ==
             transfer_modal) || (event.target ==
             add_modal)) {
@@ -57,7 +57,7 @@ window.addEventListener("click", function (event) {
 
 const addAccountBtn = document.getElementById("add-account-btn").value;
 
-addAccount = () => {
+getNewAccount = () => {
     var name = document.getElementById("add-account-name-input").value;
     var email = document.getElementById("add-account-email-input").value;
     var pass = document.getElementById("add-account-pass-input").value;
@@ -65,7 +65,7 @@ addAccount = () => {
     var balance = 5;
     var accountNumber = Math.round(Math.random() * 1000000000000);
 
-    var user = {
+    return {
         name: name,
         email: email,
         pass: pass,
@@ -73,47 +73,83 @@ addAccount = () => {
         initialBalance: initialBalance,
         balance: balance,
     }
+}
 
-    var json = JSON.stringify(user);
-    localStorage.setItem(name, json);
-    alert(name + " added!")
-    renderAccount(name);
+addAccount = () => {
+    let newAccount = getNewAccount();
+
+    let accounts = retrieveAccounts();
+    accounts.includes(newAccount);
+    accounts.push(newAccount);
+
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+    alert(newAccount.name + " added!");
+
+    renderAccounts();
+}
+
+retrieveAccounts = () => {
+    let savedAccounts = localStorage.getItem('accounts');
+
+    if (savedAccounts == null) {
+        return [];
+    }
+    return JSON.parse(savedAccounts);
 }
 
 /*               Display User Info from Local Storage           */
-renderAccount = (name) => {
-    let data = localStorage.getItem(name)
-    data = JSON.parse(data)
-    var addedtr = document.createElement("tr");
-    var addedtdname = document.createElement("td")
-    var addedtdaccountnum = document.createElement("td")
-    var addedtdbalance = document.createElement("td")
+renderAccounts = () => {
+    resetAccountsTable();
 
-    addedtdname.textContent = data.name;
-    addedtdaccountnum.textContent = data.accountNumber;
-    addedtdbalance.textContent = data.initialBalance;
+    let accounts = retrieveAccounts();
 
-    addedtr.append(addedtdname, addedtdaccountnum, addedtdbalance)
-    document.getElementById("account-table").append(addedtr)
-
+    for (let i = 0; i < accounts.length; i++) {
+        renderAccount(accounts[i]);
+    }
 }
 
-for (let name in localStorage) {
-    renderAccount(name);
+renderAccount = (account) => {
+    let table = document.getElementById("account-table-body");
+    let addedRow = document.createElement("tr");
+    let addedColumnName = document.createElement("td");
+    let addedColumnAccountNumber = document.createElement("td");
+    let addedColumnBalance = document.createElement("td");
+
+    addedColumnName.textContent = account.name;
+    addedColumnAccountNumber.textContent = account.accountNumber;
+    addedColumnBalance.textContent = account.initialBalance;
+
+    addedRow.append(addedColumnName, addedColumnAccountNumber, addedColumnBalance);
+    table.append(addedRow);
 }
+
+resetAccountsTable = () => {
+    let table = document.getElementById("account-table-body");
+    table.innerHTML = `
+    <tr>
+        <th>Name</th>
+        <th>Account Number</th>
+        <th>Balance</th>
+    </tr>
+    <tr id="account-start">
+        <td>Logic</td>
+        <td>496721523489</td>
+        <td>1292300</td>
+    </tr>
+    `;
+}
+
+// Render Saved Accounts
+renderAccounts();
 
 /*              Deposit Account              */
 const depositAccountBtn = document.getElementById("deposit-account-btn");
 
 
 function depositMoney() {
-    
+
     var depositAccountNum = document.getElementById("deposit-accnum-input").value;
     var depositAmount = document.getElementById("deposit-amount-input").value
     console.log(2)
 
 }
-
-
-
-
