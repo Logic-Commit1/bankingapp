@@ -79,7 +79,7 @@ addAccount = () => {
     let newAccount = getNewAccount();
 
     let accounts = retrieveAccounts();
-    if (accounts.includes(newAccount)) accounts.push(newAccount);
+    if (!accounts.includes(newAccount)) accounts.push(newAccount);
 
     localStorage.setItem('accounts', JSON.stringify(accounts));
     alert(newAccount.name + " added!");
